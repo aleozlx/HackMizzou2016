@@ -18,7 +18,7 @@ $(function ($) {
         var index = 0,
             playing = false,
             // Path to media here 
-            mediaPath = './playlist/',
+            mediaPath = 'https://storage.googleapis.com/mydatasets/static/moodymusic/',
             extension = '',
             tracks = [{
                 "track": 1,
