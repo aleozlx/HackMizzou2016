@@ -1,0 +1,17 @@
+Two options:
+use the URL https://play.spotify.com/track/<ID>
+or use the API https://api.spotify.com/v1/search and parse JSON for "external_urls"
+	^ this one sucks
+
+https://play.spotify.com/track/4JDZl9nKIAhAhDjw753u4X
+https://play.spotify.com/track/7Ie9W94M7OjPoZVV216Xus
+https://play.spotify.com/track/4fK6E2UywZTJIa5kWnCD6x
+https://play.spotify.com/track/4o9yBXt3So0c5KI938nHcl
+https://play.spotify.com/track/5NIPsWpDjJTFBoPxCUUeXp
+https://play.spotify.com/track/6epn3r7S14KUqlReYr77hA
+https://play.spotify.com/track/0dbzWSYpMcRtwjI1S7Pkql
+https://play.spotify.com/track/5ChkMS8OtdzJeqyybCc9R5
+https://play.spotify.com/track/03UrZgTINDqvnUMbbIMhql
+https://play.spotify.com/track/7BKLCZ1jbUBVqRi2FVlTVw
+https://play.spotify.com/track/6jWkZvd1URGktyTTwcpPpB
+https://play.spotify.com/track/3JvrhDOgAt6p7K8mDyZwRd
