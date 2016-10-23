@@ -123,9 +123,6 @@ html, body {
 
 .demo-content {
   max-width: 1080px;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/c/c5/Moraine_Lake_17092005.jpg");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
 }
 
 .demo-charts {
@@ -320,7 +317,7 @@ padding:5px 0;
 /* Typography
 ================================================== */
 
-h1,h6,p { color: black; font-weight:200; }
+h1,h6,p { color:#808080; font-weight:200; }
 h1 { font-size:42px; line-height:44px; margin:20px 0 0; }
 h6 { font-size:18px; line-height:20px; margin:4px 0 20px; }
 p { font-size:18px; line-height:20px; margin:0 0 2px; }
@@ -340,10 +337,7 @@ p a,p a:visited { line-height:inherit; }
 .add-bottom { margin-bottom:20px !important; }
 .left { float:left; }
 .right { float:right; }
-.center { text-align:center; 
-    width: 733px;
-}
-
+.center { text-align:center; }
 
 
 /* Custom Styles
@@ -367,11 +361,7 @@ transition:all 100ms ease;
 
 /* Default / Desktop / Firefox */
 audio { margin:0 15px 0 14px; width:670px; }
-#mainwrap { /* add box-shadow or other styles here */ 
-  margin-right: 0px;
-  width: 100%;
-  margin-bottom: 0px;
-          }
+#mainwrap { /* add box-shadow or other styles here */ }
 #audiowrap { background-color:#231F20; margin:0 auto; }
 #plwrap { margin:0 auto; }
 #tracks { min-height:65px; position:relative; text-align:center; text-decoration:none; top:13px; }
@@ -386,7 +376,7 @@ audio { margin:0 15px 0 14px; width:670px; }
 .plNum { padding-left:21px; width:25px; }
 .plLength { padding-left:21px; position:absolute; right:21px; top:0; }
 .plSel,.plSel:hover { background-color:#262223!important; cursor:default!important; }
-a[id^="btn"] { background-color:#231F20; color:#C8C7C8; cursor:pointer; font-size:49px; margin:-2px; padding:0 27px 11px; text-decoration:none; }
+a[id^="btn"] { background-color:#231F20; color:#C8C7C8; cursor:pointer; font-size:50px; margin:0; padding:0 27px 11px; text-decoration:none; }
 a[id^="btn"]:last-child { margin-left:-4px; }
 a[id^="btn"]:hover,a[id^="btn"]:active { background-color:#262223; }
 a[id^="btn"]::-moz-focus-inner { border:0; padding:0; }
@@ -537,9 +527,4 @@ html[data-useragent*="OS 9"] audio { width:294px; }
 html[data-useragent*="Chrome"] audio { width:287px; }
 html[data-useragent*="Chrome"][data-useragent*="Mobile"] audio { margin-left:4px; width:290px; }
 #npTitle { width:167px; }
-}
-
-#audio1{
-  width:98%;
-  margin-right: 0;
 }

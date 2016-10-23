@@ -94,19 +94,19 @@
   // drawing that to the screen, we can change its size and/or apply
   // other changes before drawing it.
 
-  // function takepicture() {
-  //   var context = canvas.getContext('2d');
-  //   if (width && height) {
-  //     canvas.width = width;
-  //     canvas.height = height;
-  //     context.drawImage(video, 0, 0, width, height);
+  function takepicture() {
+    var context = canvas.getContext('2d');
+    if (width && height) {
+      canvas.width = width;
+      canvas.height = height;
+      context.drawImage(video, 0, 0, width, height);
     
-  //     var data = canvas.toDataURL('image/png');
-  //     photo.setAttribute('src', data);
-  //   } else {
-  //     clearphoto();
-  //   }
-  // }
+      var data = canvas.toDataURL('image/png');
+      photo.setAttribute('src', data);
+    } else {
+      clearphoto();
+    }
+  }
 
   // Set up our event listener to run the startup process
   // once loading is complete.

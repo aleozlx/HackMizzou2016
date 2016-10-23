@@ -3,19 +3,13 @@
 var _continue = false;
 var score = {bad: 0, good: 0};
 var score2 = {bad: 0, good: 0};
+var reading;
 var secondRead = false;
 var firstRead = true;
+var skipCounter = 0;
+var numCalls = 0;
 var ndelta_threshold = 0;
 var pdelta_threshold = 0;
-var ndelta = 0;
-var pdelta = 0; 
-var sum = 0; 
-var timer = 0; 
-var timer2 = 1;
-var timer3 = 0; 
-var check = 0; 
-var check2 = 0; 
-var check3 = 0;
 
 function startLoop(){
     console.log("Song playing");
@@ -24,11 +18,12 @@ function startLoop(){
     {
         _continue = true;
          //Take picture
-       setTimeout('takePicture()', 0);
+       setTimeout('takePicture()', 75);
     }
     else
     {
-        setTimeout('takePicture()', (timer2)*1000);
+        setTimeout('takePicture()', 2000);
+        
     }
 }
 
@@ -53,7 +48,7 @@ function calcScore(score_set){
     }
     
     var s = score_set[0].scores;
-    console.log(s);
+    
     if(firstRead)
     {
        firstRead = false; 
@@ -67,47 +62,42 @@ function calcScore(score_set){
     }
     else
     {
-        score2['bad'] = score2['good'] = 0;
         score2['bad'] += s['anger'] * 1;
         score2['bad'] += s['disgust'] * 1;
        score2['bad'] += s['fear'] * 1;
        score2['bad'] += s['sadness'] * 1;
        score2['good'] += s['contempt'] * 1;
-       score2['good'] += s['happiness'] * 1; 
+       score2['good'] += s['happiness'] * 1;    
         if(secondRead)
         {
-            if(check2 == 1)
-            {
-            ndelta = score2['bad'] - score['bad'];
-            pdelta = score2['good'] - score['good'];
-                check3=1;
-            }
-            else
-              {
-            check2++;
-               }
+            secondRead = false;
+            ndelta_threshold = score2['bad'] - score['bad'];
+            pdelta_threshold = score2['good'] - score2['good'];
         }
-        if(check3 == 1)
+        else
         {
-            var tmp = ndelta / pdelta;
-            sum += tmp;
-            if(tmp > (1/timer2) + sum)
+            if((score2['bad'] - score['bad'])/(score2['good'] - score['good']) > ndelta_threshold)
             {
-                check++;
+                skipCounter++;
+                pdelta_threshold += .1;
             }
-            var tmp3 = 1/timer2 + sum;
-            console.log("tmp, compare: " + tmp + "," + tmp3);
-            console.log("pdelta, ndelta: " + pdelta + "," + ndelta);
-            console.log("timer: " + timer2);
-            console.log(score);
-            console.log(score2);
-            if(check > 1) 
+            if((score2['good'] - score['good'])/(score2['bad'] - score['bad']) > pdelta_threshold)
+            {
+                skipCounter--;
+                ndelta_threshold += .1;
+            }
+            
+            console.log("skipCounter: " + skipCounter + " | score1: ");
+            console.dir(score);
+            console.log("score2: "); 
+            console.dir(score2);
+            console.log(" | ndelta_threshold, pdelta_threshold: " + ndelta_threshold + "," + pdelta_threshold);
+            if(skipCounter > 2) 
             {
                 score2['bad'] = score2['good'] = score['bad'] = score['good'] = 0;
-                pdelta = ndelta = 0;
                 secondRead = false;
                 firstRead = true;
-                timer = timer2 = 0; 
+                skipCounter = 0; 
                 skipPoo();
             }
                 
@@ -119,10 +109,6 @@ function calcScore(score_set){
         }
         
     }
-    
-    timer3 = timer + timer2;
-    timer = timer2; 
-    timer2 = timer3;
     
     if(_continue)
         startLoop();
